@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy</title>
+</head>
+<body>
+    <script>
+        // 1. Membuat target (berubah object kosong)
+        const target = {};
+
+        // 2. Membuat handler
+        const handler = {
+            get: function(target, property){
+                return target[property];
+            },
+
+            set: function(target, property, value){
+                // Memberi validasi di handler
+                if(value == null){
+                    target[property] = ""; // jika data null, kiriman yang diteruskan string kosong
+                }else{
+                    target[property] = value;
+                }
+                
+            }
+        };
+
+        // 3. Buat Proxy (menghubungkan target & handler)
+        const proxy = new Proxy(target, handler);
+
+        // 4. Tambahkan property ke target/object melalui proxy
+        proxy.firstName = "Munawar";
+        proxy.lastName = null;
+
+        // 5. Tes apakah data sudah masuk dengan di console
+        console.info(proxy.firstName);
+        console.info(proxy.lastName);
+        console.info(target);
+    </script>
+</body>
+</html>

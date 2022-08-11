@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+
+        // Object Freeze & Seal
+        {
+            console.info("..................... Object Freeze & Seal ............................");
+
+            const person = {
+                firstName: "Munawar",
+                lastName: "Ahmad"
+            };
+
+            // Object.freeze(person); // supaya object tidak bisa diubah, dihapus & ditambah property nya
+
+            Object.seal(person); // supaya object tidak bisa dihapus & ditambah property nya tapi ttp bisa diubah
+
+            person.firstName = "Farhana"; // saat freeze ini tidak akan berfungsi, tapi saat seal berfungsi
+            person.middleName = "The Flash"; // saat freeze / seal ini tidak akan berfungsi
+            delete person.lastName; // saat freeze / seal ini tidak akan berfungsi 
+
+            console.info(person);
+        }
+
+
+        // Object Assign
+        {
+            console.info("..................... Object Assign ............................");
+
+            const target = {
+                firstName: "Munawar"
+            }
+
+            const source = {
+                lastName: "Ahmad"
+            }
+
+            Object.assign(target, source); // Dengan ini maka semua yang ada di object source akan pindah juga ke object target
+
+            console.info(target);
+        }
+
+
+        // Object property name & value
+        {
+            console.info("..................... Object Property Name & Value ............................");
+
+            const person = {
+                firstName: "Munawar",
+                lastName: "Ahmad"
+            }
+
+            console.info(Object.values(person)); // mengambil semua value di object person (kembalian data berupa array)
+            console.info(Object.getOwnPropertyNames(person)); // mengambil semua property di object (kembalian data berupa array)
+        }
+
+    </script>
+</body>
+</html>

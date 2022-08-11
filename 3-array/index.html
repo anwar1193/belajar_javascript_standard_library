@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <script>
+        // Array Loop
+        {
+            console.info("........................Array Loop...........................");
+            const names = ["Anwar", "Shinta", "Muneeb", "Kiyya"];
+
+            // forEach dengan anonymous function
+            names.forEach(function(value, index){
+                console.info(`${index} : ${value}`);
+            });
+
+            // forEach dengan arrow function
+            names.forEach((value, index) => console.info(`${index} : ${value}`));
+
+            // forEach dengan arrow function tanpa menampilkan index
+            names.forEach((value) => console.info(value));
+        }
+
+        
+        // Array Queue (Antrian)
+        {
+            console.info("..........................Array Queue...........................");
+            const antrian = [];
+
+            antrian.push("Anwar");
+            antrian.push("Shinta");
+            antrian.push("Muneeb");
+
+            console.info(antrian.shift()); // Otomatis mengambil & menghapus array paling depan ("Anwar")
+            console.info(antrian.shift()); // Otomatis mengambil & menghapus array selanjutnya ("Shinta")
+            console.info(antrian.shift()); // Otomatis mengambil & menghapus array selanjutnya ("Muneeb")
+            console.info(antrian.shift()); // Otomatis mengambil & menghapus array selanjutnya ("Tidak ada data / undefined")
+        }
+
+
+        // Array Stack (Tumpukan)
+        {
+            console.info("..........................Array Stack...........................");
+            const tumpukan = [];
+
+            tumpukan.push("Anwar");
+            tumpukan.push("Shinta");
+            tumpukan.push("Muneeb");
+
+            console.info(tumpukan.pop()); // Otomatis mengambil & menghapus array paling belakang ("Muneeb")
+            console.info(tumpukan.pop()); // Otomatis mengambil & menghapus array paling belakang selanjutnya ("Shinta")
+            console.info(tumpukan.pop()); // Otomatis mengambil & menghapus array paling belakang selanjutnya ("Anwar")
+            console.info(tumpukan.pop()); // Otomatis mengambil & menghapus array paling belakang selanjutnya ("Tidak ada data / undefined")
+        }
+
+
+        // Array Search (Pencarian)
+        {
+            console.info("..........................Array Search...........................");
+
+            const deretAngka = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5];
+
+            console.info(deretAngka.find(value => value > 3)); // mencari nilai pertama di array yang lebih dari 3 (Output 4)
+            console.info(deretAngka.findIndex(value => value > 3)); // mencari index dari nilai pertama di array yang lebih dari 3 (Output 3)
+            console.info(deretAngka.includes(7)); // Cek apakah di array ada nilai 7 (output false)
+            console.info(deretAngka.indexOf(5)); // mencari index dari angka 5 pertama di array (output 4)
+            console.info(deretAngka.lastIndexOf(5)); // mencari index dari angka 5 terakhir di array (output 9)
+        }
+
+
+        // Array Filter
+        {
+            console.info("..........................Array Filter...........................");
+
+            const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            const ganjil = numbers.filter(value => value % 2 === 1); // menampilkan angka ganjil di array dengan filter
+            const genap = numbers.filter(value => value % 2 === 0); // menampilkan angka genap di array dengan filter
+
+            console.info(numbers);
+            console.info(ganjil);
+            console.info(genap);
+        }
+
+
+        // Array Transform
+        {
+            console.info("..........................Array Transform...........................");
+
+            // 1. map, contoh kasus : kita ingin mengubah setiap data di dalam array menjadi huruf besar semua
+            const names = ["Anwar", "Shinta", "Muneeb"];
+            const namesUpper = names.map(value => value.toLocaleUpperCase());
+            console.info(namesUpper);
+
+            // 2. reduce, contoh kasus : kita ingin menggabungkan data array names menjadi 1 string, urutan dari kiri ke kanan
+            const namesReduce = names.reduce((before, value) => before + " " + value);
+            console.info(namesReduce);
+
+            // 3. reduce right, contoh kasus : kita ingin menggabungkan data array names menjadi 1 string, urutan dari kiri ke kanan
+            const namesReduceRight = names.reduceRight((before, value) => before + " " + value);
+            console.info(namesReduceRight);
+
+            // 4. reduce, contoh kasus 2 : mentotalkan nilai yang ada di dalam array
+            const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            const total = number.reduce((before, value) => before + value);
+            console.info(total);
+        }
+    </script>
+</body>
+</html>

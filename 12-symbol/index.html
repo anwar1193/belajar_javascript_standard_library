@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol</title>
+</head>
+<body>
+    <script>
+        {
+            // Symbol
+
+            const firstName = Symbol("namaDepan");
+            const lastName = Symbol("namaBelakang");
+
+            const person = {};
+            person[firstName] = "Munawar";
+            person[lastName] = "Ahmad";
+
+            console.info(person);
+        }
+
+        {
+            // Symbol for
+
+            console.info(Symbol.for("firstName") === Symbol.for("firstName"));
+
+            const person = {};
+            person[Symbol.for("firstName")] = "Munawar";
+            person[Symbol.for("lastName")] = "Ahmad";
+
+            console.info(person);
+            console.info(person[Symbol.for("firstName")]);
+            console.info(person[Symbol.for("lastName")]);
+        }
+    </script>
+</body>
+</html>

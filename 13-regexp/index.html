@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegExp</title>
+</head>
+<body>
+    <script>
+        {
+            // Create Regexp
+            const regex1 = /anwar/; // cara 1
+            const regex2 = new RegExp("anwar"); // cara 2
+            const regex3 = new RegExp(/anwar/); // cara 3
+        }
+
+        {
+            // Test Regexp / Regexp instance method
+
+            console.info(".......... Test Regexp / Regexp instance method ..........");
+
+            const name = "anwar ahmad lee young jae johnson anderson";
+            const data_regex = /ahmad/;
+
+            const result = data_regex.exec(name); // mencari kata "ahmad"
+            console.info(result); // kembalian berupa array
+            console.info(data_regex.exec("Tidak Ada")); // kembalian null
+
+            const test = data_regex.test(name); // menentukan apakah kata "ahmad" ada atau tidak, kembalian berupa true/false
+            console.info(test); // ada data, kembalian true
+            console.info(data_regex.test("Tidak Ada")); // tidak ada data kembalian false
+        }
+
+        {
+            // Regexp modifier
+
+            console.info(".......... Regexp modifier ..........");
+
+            /*
+                i : secara default, regexp itu case sensitive, dengan di tambahkan i, maka menjadi tidak case sensitive
+
+                g : defaultnya saat sudah menemukan data (1 data), pencarian/proses regex berhenti. dengan ditambahkan g, maka semua nilai akan berubah (wajib ditambahkan jika regexp di kombinasikan dengan perulangan, supaya tidak terjadi infinite looping)
+
+                m : multiline, pencarian dilakukan di setiap baris (enter)
+            */
+
+            const name = "eko kurniawan\nEko khannedy\nEdi Kurniawan";
+            const regex1 = /eko/ig
+            const regex2 = /kurniawan/ig
+
+            let result;
+            
+            while((result = regex1.exec(name)) !== null){
+                console.info(result);
+            }
+
+            while((result = regex2.exec(name)) !== null){
+                console.info(result);
+            }
+        }
+
+        {
+            // Advanced Regex
+
+            console.info(".......... Advanced Regex ..........");
+
+            const regex = /ek[aiueo]/ig // mencari yang huruf depannya "ek" & huruf belakang nya antara a,i,u,e,o
+
+            const regex2 = /e.a/ig // mencari yang huruf depannya "e" dan huruf belakangnya "a", huruf tengah nya huruf apapun
+
+            const name = "eko eki eka edo ela eku";
+
+            let result;
+            while((result = regex.exec(name)) !== null){
+                console.info(result);
+            }
+
+            let result2;
+            while((result2 = regex2.exec(name)) !== null){
+                console.info(result2);
+            }
+        }
+
+        {
+            // Penggunaan regex di string
+            console.info(".......... Penggunaan Regex di String ..........");
+
+            const name = "eko eki eka edo ela eku";
+
+            console.info(name.match(/ek[aiueo]/ig)); // menampilkan semua hasil dalam bentuk array, yang depannya "ek" dan belakangnya antara a,i,u,e,o
+
+            console.info(name.search(/ek[aiueo]/ig)); // menampilkan index pertama kali data di temukan, yang depannya "ek" dan belakangnya antara a,i,u,e,o
+
+            console.info(name.replace(/ek[aiueo]/i, "kamu")); // mengubah/replace data pertama yang ditemukan menjadi "kamu", yang depannya "ek" dan belakangnya antara a,i,u,e,o
+
+            console.info(name.replaceAll(/ek[aiueo]/ig, "kamu")); // mengubah/replace semua data yang ditemukan menjadi "kamu", yang depannya "ek" dan belakangnya antara a,i,u,e,o
+
+            console.info(name.split(/e/ig)); // split semua data berdasarkan huruf "e" (semua e nya hilang)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <script>
+        const person = {
+            firstName: "Munawar",
+            lastName: "Ahmad",
+            address: {
+                country: "Indonesia",
+                city: "Bogor"
+            },
+            hobbies: [
+                "Coding", "Game", "Sport"
+            ]
+        }
+
+        const json = JSON.stringify(person); // mengubah object ke json
+        console.info(json);
+
+        const jsonToObject = JSON.parse(json); // mengubah json ke object
+        console.info(jsonToObject);
+    </script>
+</body>
+</html>

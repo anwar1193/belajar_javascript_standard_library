@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+</head>
+<body>
+    <script>
+        // Create Date
+        {
+            console.info("....................... Create Date ..........................");
+
+            const date1 = new Date(); // Tanggal Sekarang
+            console.info(date1);
+
+            const date2 = new Date(2022, 05, 18); // Dengan Inputan tahun, bulan, tanggal
+            console.info(date2);
+
+            const date3 = new Date(2022, 05, 18, 5, 40, 15, 45); // Dengan inputan tahun, bulan, tanggal, jam, menit, detik, milisecond
+            console.info(date3);
+
+            const date4 = new Date(1652827396632); // Dengan inputan epoch time dari https://currentmillis.com/
+            console.info(date4)
+        }
+
+        // Epoch & unix timestamp
+        {
+            console.info("....................... Epoch & unix timestamp ..........................");
+
+            const date1 = new Date(); // Tanggal Sekarang
+            console.info(date1.getTime()); // Bentuk Epoch Nya
+
+            const date2 = new Date(2022, 05, 18); // Dengan Inputan tahun, bulan, tanggal
+            console.info(date2.getTime()); // Bentuk Epoch Nya
+
+            const date3 = new Date(2022, 05, 18, 5, 40, 15, 45); // Dengan inputan tahun, bulan, tanggal, jam, menit, detik, milisecond
+            console.info(date3.getTime()); // Bentuk Epoch Nya
+
+            const date4 = new Date(1652827396632); // Dengan inputan epoch time dari https://currentmillis.com/
+            console.info(date4.getTime());
+
+            console.info(Date.now()); // Epoch time sekarang
+        }
+
+        // Date Parsing (Parsing string menjadi epoch time)
+        {
+            console.info("....................... Date Parsing ..........................");
+
+            const timeLengkap = "2022-05-18T05:50:20.55+07:00"; // tahun-bulan-tanggal(T/pemisah)jam:detik:menit.milisecond+(zona waktu)
+
+            const timeSedang = "2022-05-18T05:50:20.55" // tanpa zona waktu
+
+            const tanggal = "2022-05-18";
+
+            const epochTimeLengkap = Date.parse(timeLengkap);
+            console.info(epochTimeLengkap);
+
+            const epochTimeSedang = Date.parse(timeSedang);
+            console.info(epochTimeSedang);
+
+            const epochTanggal = Date.parse(tanggal);
+            console.info(epochTanggal);
+        }
+
+
+        // Getter & Setter
+        {
+            console.info("....................... Getter & Setter ..........................");
+
+            const date = new Date();
+
+            console.info(date.getFullYear()); // mengambil tahun sekarang
+            console.info(date.getMonth()); // mengambil bulan sekarang
+            console.info(date.getDate()); // mengambil tanggal sekarang
+            console.info(date.getHours()); // mengambil jam sekarang
+            console.info(date.getMinutes()); // mengambil menit sekarang
+            console.info(date.getMilliseconds()); // mengambil milisecond sekarang
+            console.info(date.getTimezoneOffset()); // mengambil jarak zona waktu dengan UTC (dalam menit)
+        }
+    </script>
+</body>
+</html>

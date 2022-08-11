@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number</title>
+</head>
+<body>
+    <script>
+        const input = "12345";
+        const number = Number(input);
+
+        console.info(typeof input);
+        console.info(typeof number);
+
+        console.info(Number("salah"));
+
+        console.info(Number.MIN_VALUE); // number terkecil
+        console.info(Number.MAX_VALUE); // number terbesar
+        console.info(Number.MIN_SAFE_INTEGER); // number terkecil (aman)
+        console.info(Number.MAX_SAFE_INTEGER); // number terbesar (aman)
+        console.info(Number.NaN); // NaN
+
+        const data = Number("123");
+        console.info(Number.isInteger(data)); //  cek apakah integer/angka?
+        console.info(Number.isNaN(data)); // cek apakah bukan angka/integer?
+
+        const value = Number("100000");
+        console.info(value.toString(2)); // ubah jadi bilangan biner
+        console.info(value.toString(8)); // ubah jadi bilangan octal
+        console.info(value.toLocaleString("id-ID")); // Ubah jadi currency Indonesia
+        console.info(value.toLocaleString("en-US")); // Ubah jadi currency US
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflect</title>
+</head>
+<body>
+    <script>
+        const person = {};
+
+        Reflect.set(person, "firstName", "Munawar"); // manambah property firstName ke person
+        Reflect.set(person, "lastName", "Ahmad"); // manambah property lastName ke person
+
+        console.info(person);
+
+        console.info(Reflect.get(person, "firstName")); // menampilkan person.firstName dengan reflect
+        console.info(Reflect.get(person, "lastName")); // menampilkan person.lastName dengan reflect
+
+        console.info(Reflect.has(person, "firstName")); // mengecek apakah ada firstName di person dengan menggunakan reflect (kembalian true/false)
+
+        console.info(Reflect.has(person, "middleName")); // mengecek apakah ada middleName di person dengan menggunakan reflect (kembalian true/false)
+    </script>
+</body>
+</html>
